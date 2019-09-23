@@ -1,19 +1,29 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, ScrollView } from "react-native";
+import { NativeRouter, Route, Link } from "react-router-native";
+import { Button, ThemeProvider } from "react-native-elements";
+
+import Header from "./Header";
+import Home from "./Home";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <ThemeProvider>
+      <ScrollView>
+        <Header />
+        <NativeRouter>
+          <Route exact path="/" component={Home} />
+        </NativeRouter>
+      </ScrollView>
+    </ThemeProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "flex-start"
+  }
 });
